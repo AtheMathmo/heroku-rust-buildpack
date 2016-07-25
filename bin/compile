@@ -5,4 +5,6 @@ cache=$(cd "$2/" && pwd)
 # Install rust via rustup with default
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+# Go to directory and build
+cd "$1"
 $HOME/.cargo/bin/cargo build --release
