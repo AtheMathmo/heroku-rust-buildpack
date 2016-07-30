@@ -1,10 +1,12 @@
-mkdir -p "$1" "$2"
-build=$(cd "$1/" && pwd)
-cache=$(cd "$2/" && pwd)
+BUILD_DIR="$1"
+CACHE_DIR="$2"
 
 # Install rust via rustup with default
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+CARGO_HOME=CACHE_DIR RUSTUP_HOME=CACHE_DIR bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
+
+# Set the default toolchain to stable
+CACHE_DIR/bin/rustup default stable
 
 # Go to directory and build
-cd "$1"
-$HOME/.cargo/bin/cargo build --release
+cd BUILD_DIR
+CACHE_DIR/bin/cargo build --release
