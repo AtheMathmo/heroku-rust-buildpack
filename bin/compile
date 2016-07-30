@@ -8,5 +8,5 @@ CARGO_HOME=CACHE_DIR RUSTUP_HOME=CACHE_DIR bash -c 'curl https://sh.rustup.rs -s
 CACHE_DIR/bin/rustup default stable
 
 # Go to directory and build
-cd BUILD_DIR
+cd $BUILD_DIR
 CACHE_DIR/bin/cargo build --release
