@@ -2,11 +2,11 @@ BUILD_DIR="$1"
 CACHE_DIR="$2"
 
 # Install rust via rustup with default
-CARGO_HOME=CACHE_DIR RUSTUP_HOME=CACHE_DIR bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
+CARGO_HOME=$CACHE_DIR RUSTUP_HOME=$CACHE_DIR bash -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y'
 
 # Set the default toolchain to stable
-CACHE_DIR/bin/rustup default stable
+$CACHE_DIR/bin/rustup default stable
 
 # Go to directory and build
 cd $BUILD_DIR
-CACHE_DIR/bin/cargo build --release
+$CACHE_DIR/bin/cargo build --release
